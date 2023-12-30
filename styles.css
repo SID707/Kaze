@@ -71,9 +71,7 @@ h1{
     background: rgb(195, 234, 250);
 }
 
-.placeinput .location{
 
-}
 
 .weatherdata{
     width: 100%;
@@ -92,7 +90,11 @@ h1{
     font-size: 1.5rem;
 }
 
-.weatherdata h4{
+.currentweather .icon {
+    text-align: center;
+}
+
+.details h4{
     margin-top: 12px;
     font-size: 1rem;
     font-weight: 500px;
@@ -108,7 +110,7 @@ h1{
 }
 
 .weathercards{
-    display: fle;
+    display: flex;
     gap: 20px;
     
 }
@@ -124,10 +126,14 @@ h1{
     background: #66baeb;
     justify-content: space-between;
     padding: 20px 70px 20px 20px;
-    margin-bottom: 10px;
+    margin-bottom: 0px;
     list-style: none;
     
 }
+
+
+
+
 
 @media (max-width: 1400px) {
     .weatherdata .currentweather {
@@ -159,6 +165,15 @@ h1{
     .weathercards .cards{
         width: 83%;
     }
+
+    
+}
+
+@media (max-width: 877px) {
+    .cards {
+        width: 100%;
+        flex-direction: column;
+    }
 }
 
 @media (max-width: 750px){
@@ -170,4 +185,24 @@ h1{
     .placeinput{
         width: 100%;
     }
+
+    
+}
+
+@media (max-width: 550px){
+    .forecast {
+        padding-right: 0px;
+    }
+
+    .cards {
+        width: 100%;
+        flex-direction: column;
+    }
+
+    .cards h4{
+        font-size: medium;
+        width: 100%;
+    }
+
+    
 }
