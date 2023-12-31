@@ -1,6 +1,6 @@
 const cityInput = document.querySelector(".cityinput");
 const searchButton = document.querySelector(".search");
-const locationButton = document.querySelector(".location")
+const locationButton = document.querySelector(".location");
 const currentWeatherDiv = document.querySelector(".currentweather");
 const weatherCardsDiv = document.querySelector(".weathercards");
 
@@ -25,9 +25,7 @@ const createWeatherCard = (cityName, weatherItem, index) => {
                 <h3>(${weatherItem.dt_txt.split(" ")[0]})</h3>
                 <img src="https://openweathermap.org/img/wn/${weatherItem.weather[0].icon}@2x.png" alt="weather icon" width="70" height="auto">
                 <h4>Temp: ${(weatherItem.main.temp - 273.15).toFixed(2)}°C</h4>
-                <br>
                 <h4>Wind: ${weatherItem.wind.speed} km/h</h4>
-                <br>
                 <h4>Humidity: ${weatherItem.main.humidity}%</h4>
             </li>`;
     }
@@ -71,7 +69,7 @@ const getDetails = (cityName, lat, lon) => {
 
     }).catch(() => {
         alert("An error occured while fetching the weather forecast!");
-    }) 
+    });
 }
 
 const getCoordinates = () => {
@@ -82,11 +80,11 @@ const getCoordinates = () => {
 
     fetch(geocoding_api_url).then(res => res.json()).then(data => {
         if(!data.length) return alert(`No coordinates found for $(cityName)`);
-        const { name, lat, lon} = data[0];
+        const { name, lat, lon } = data[0];
         getDetails(name, lat, lon);
     }).catch(() => {
         alert("An error occured while fetching the coordinates!");
-    }) 
+    });
 }
 
 const getUserCoordinates = () => {
@@ -101,7 +99,7 @@ const getUserCoordinates = () => {
                 getDetails(name, latitude, longitude);
             }).catch(() => {
                 alert("An error occured while fetching the city!");
-            }) 
+            });
         },
         error => {
             if(error.code === error.PERMISSION_DENIED) {
